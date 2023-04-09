@@ -30,9 +30,9 @@ export const Answer: React.FC<AnswerProps> = ({ text }) => {
 
   return (
     <div className="border border-gray-800 p-4 rounded-md shadow-md shadow-black">
-      {answer.map((text)=>(
+      {answer.map((text, )=>(
         codeSplitText.test(text) ? (
-          <DisplayCode code={text}/>
+          <DisplayCode key={Math.random()} code={text}/>
         ):(
           text.split(" ").map((word:any, index: any) => (
             <span

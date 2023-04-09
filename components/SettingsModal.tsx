@@ -26,7 +26,7 @@ export default function Settings(){
         if (KEY) {
             updateApiKey(KEY);
         }
-    }, [apiKey]);
+    }, [apiKey, updateApiKey]);
 
     return(
         <div 
