@@ -16,7 +16,6 @@ export const Answer: React.FC<AnswerProps> = ({ text }) => {
     //remove code from text
     //add code component back into text
     const splitText = splitCodeBlock(text)
-    console.log(splitText)
     setAnswer(splitText)
   }, [text]);
 

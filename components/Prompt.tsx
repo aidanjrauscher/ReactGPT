@@ -34,7 +34,7 @@ export default function Prompt(){
                     <IconSearch color="black" className={`absolute rotate right-1 top-2 ${apiKey ? "hover:cursor-pointer hover:opacity-75" : "" }`}/>
                 </div>
             ) : (
-                <div className="text-center font-bold text-3xl mt-7">
+                <div className="text-center font-bold text-3xl">
                     Please enter your OpenAI API key in settings.
                 </div>
             )}
