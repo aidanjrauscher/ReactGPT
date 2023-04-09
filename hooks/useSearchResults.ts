@@ -23,7 +23,7 @@ export default function useSearchResults(){
         }
 
         updateLoading(true)
-        
+
         const response = await fetch("/api/search", {
             method: "POST",
             headers: {
@@ -53,7 +53,7 @@ export default function useSearchResults(){
             updateLoading(false);
             const data = JSON.parse(event.data);
             if (data.data === "DONE") {
-                updateLoading(true)
+
             } else {
                 // Stream text
                 updateAnswer(data.data);

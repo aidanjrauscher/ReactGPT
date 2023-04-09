@@ -29,7 +29,7 @@ export const Answer: React.FC<AnswerProps> = ({ text }) => {
 
   return (
     <div className="border border-gray-800 p-4 rounded-md shadow-md shadow-black">
-      {answer.map((text, )=>(
+      {answer.map((text)=>(
         codeSplitText.test(text) ? (
           <DisplayCode key={Math.random()} code={text}/>
         ):(
@@ -37,7 +37,7 @@ export const Answer: React.FC<AnswerProps> = ({ text }) => {
             <span
               key={index}
               className={styles.fadeIn}
-              style={{ animationDelay: `${index * 0.01}s` }}
+              style={{ animationDelay: `${index * 0.001}s` }}
             >
               {word}{" "}
             </span>
