@@ -1,28 +1,50 @@
 import React, { useEffect, useState } from "react";
 import styles from "./answer.module.css";
+import DisplayCode from "../DisplayCode";
 
 interface AnswerProps {
   text: string;
 }
 
 export const Answer: React.FC<AnswerProps> = ({ text }) => {
-  const [words, setWords] = useState<string[]>([]);
+  const [answer, setAnswer] = useState<any[]>([]);
+  const codeSplitText = /(```[\s\S]+?(```|$))/
+
 
   useEffect(() => {
-    setWords(text.split(" "));
+    //save code from text
+    //remove code from text
+    //add code component back into text
+    const splitText = splitCodeBlock(text)
+    console.log(splitText)
+    setAnswer(splitText)
   }, [text]);
 
+  const splitCodeBlock = (text: String)=>{
+    const codeRegex = /(```[\s\S]*?(```|$))/g
+    //split text by sections that begin with ``` and with ``` or string end (handles cases where code block gets cutoff)
+    let splitText = text.split(codeRegex)
+    //filter out elements that just contain ticks and return 
+    return splitText.filter((text)=>!/^```$/.test(text))
+  }
+
   return (
-    <div>
-      {words.map((word, index) => (
-        <span
-          key={index}
-          className={styles.fadeIn}
-          style={{ animationDelay: `${index * 0.01}s` }}
-        >
-          {word}{" "}
-        </span>
-      ))}
+    <div className="border border-gray-800 p-4 rounded-md shadow-md shadow-black">
+      {answer.map((text)=>(
+        codeSplitText.test(text) ? (
+          <DisplayCode code={text}/>
+        ):(
+          text.split(" ").map((word:any, index: any) => (
+            <span
+              key={index}
+              className={styles.fadeIn}
+              style={{ animationDelay: `${index * 0.01}s` }}
+            >
+              {word}{" "}
+            </span>
+          ))
+        )
+    ))}
     </div>
   );
 };

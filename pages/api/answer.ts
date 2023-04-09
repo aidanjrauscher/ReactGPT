@@ -11,30 +11,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
   const system_prompt = `You are a helpful assistant that accurately answers queries using documentation from the front-end JavaScript library React. Use the text and code examples provided to form your answer, but avoid copying word-for-word from the documentation. Try to use your own words when possible. Keep your answer under 120 words. Be accurate, helpful, concise, and clear. Use the following passages to provide an answer to the query: "${query}"`
 
-  // const openai = new OpenAIApi(configuration);
-
-  // res.setHeader("Content-Type", "text/html");
-  // res.setHeader("Transfer-Encoding", "chunked");
-  // res.setHeader("Cache-Control", "no-cache");
-
-
-
-  // const stream = await openai.createChatCompletion({
-  //   model:'gpt-3.5-turbo',
-  //   messages: [
-  //     {
-  //       role: "system",
-  //       content: system_prompt
-  //     },
-  //     {
-  //       role: "user",
-  //       content: prompt
-  //     }
-  //   ],
-  //   temperature:0,
-  //   max_tokens: 200,
-  //   stream: true 
-  // })
 
   const chatgpt = new ChatGPTAPI({
     apiKey: apiKey,
@@ -61,7 +37,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   };
 
   const answer = await chatgpt.sendMessage(query,{
-    onProgress: (stream)=>{console.log(stream); sendData(JSON.stringify({ data: stream.text }))}
+    onProgress: (stream)=>{sendData(JSON.stringify({ data: stream.text }))}
   })
 
 

@@ -10,12 +10,6 @@ export const Navbar: FC = () => {
           className="flex hover:opacity-50 items-center"
           href="/"
         >
-          {/* <Image
-            className="hidden sm:flex"
-            src={}
-            alt="The Network State GPT"
-            height={40}
-          /> */}
           <div className="ml-2 flex justify-start gap-1 items-center">
             <IconBrandReact color={"#61DBFB"} size="36"/>
             ReactGPT

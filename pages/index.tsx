@@ -16,7 +16,6 @@ export default function Home() {
 
   const { apiKey } = useSettingsStore()
   const {chunks, query, answer, loading, updateChunks, updateQuery, updateAnswer, updateLoading} = useGenerationStore()
-  console.log(chunks)
   
   return (
     <>
@@ -31,8 +30,8 @@ export default function Home() {
           content="width=device-width, initial-scale=1"
         />
         <link
-          rel="icon"
-          href="/favicon.ico"
+          rel="shortcut icon"
+          href="/favicon.png"
         />
       </Head>
       <main>
@@ -40,10 +39,9 @@ export default function Home() {
       <div className="flex flex-col h-screen bg-gray-700 text-white">
         <Navbar />
         <div className="flex-1 overflow-auto">
-          <div className="mx-auto flex h-full w-full max-w-[750px] flex-col items-center px-3 pt-4 sm:pt-8">
+          <div className="mx-auto flex h-full w-screen max-w-[90vw] flex-col items-center px-3 pt-4 sm:pt-8">
 
-            <Prompt />
-
+            <Prompt/>
             {loading ? (
               <div className="mt-6 w-full">
 
@@ -57,19 +55,20 @@ export default function Home() {
                 </div>
               </div>
             ) : answer ? (
-              <div className="mt-6">
-                <div className="font-bold text-2xl mb-2">Answer</div>
-                <Answer text={answer} />
-
-                <div className="mt-6 mb-16">
+              <div className="flex flex-row w-full grow gap-8 mt-16">
+                <div className="flex flex-col w-1/2 h-96 mb-2">
+                  <div className="font-bold text-2xl mb-2">Answer</div>
+                  <Answer text={answer} />
+                </div>
+                <div className="flex flex-col w-1/2 mb-10">
                   <div className="font-bold text-2xl">Documentation</div>
 
                   {chunks.map((chunk, index) => (
                     <div key={index}>
-                      <div className="mt-4 border border-zinc-600 rounded-lg p-4">
+                      <div className="mt-4 border border-gray-800 rounded-lg p-4 shadow-md shadow-black">
                         <div className="flex justify-between">
                           <div className="flex items-center">
-                            <div className="ml-4">
+                            <div className="">
                               <div className="font-bold text-xl">{chunk.title}</div>
                             </div>
                           </div>
@@ -82,7 +81,7 @@ export default function Home() {
                             <IconExternalLink />
                           </a>
                         </div>
-                        <div className="mt-4">{chunk.content}</div>
+                        <div className="mt-4 ml-2">{chunk.content}</div>
                       </div>
                     </div>
                   ))}
