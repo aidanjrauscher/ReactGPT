@@ -55,39 +55,39 @@ export default function Home() {
                 </div>
               </div>
             ) : answer ? (
-            //   <div className="flex flex-row w-full grow gap-8 mt-16">
-            //     <div className="flex flex-col w-1/2 h-96 mb-2">
-            //       <div className="font-bold text-2xl mb-2">Answer</div>
-            //       <Answer text={answer} />
-            //     </div>
-            //     <div className="flex flex-col w-1/2 mb-10">
-            //       <div className="font-bold text-2xl">Documentation</div>
+              <div className="flex flex-row w-full grow gap-8 mt-16">
+                <div className="flex flex-col w-1/2 h-96 mb-2">
+                  <div className="font-bold text-2xl mb-2">Answer</div>
+                  <Answer text={answer} />
+                </div>
+                <div className="flex flex-col w-1/2 mb-10">
+                  <div className="font-bold text-2xl">Documentation</div>
 
-            //       {chunks.map((chunk, index) => (
-            //         <div key={index}>
-            //           <div className="mt-4 border border-gray-800 rounded-lg p-4 shadow-md shadow-black">
-            //             <div className="flex justify-between">
-            //               <div className="flex items-center">
-            //                 <div className="">
-            //                   <div className="font-bold text-xl">{chunk.title}</div>
-            //                 </div>
-            //               </div>
-            //               <a
-            //                 className="hover:opacity-50 ml-4"
-            //                 href={chunk.url}
-            //                 target="_blank"
-            //                 rel="noreferrer"
-            //               >
-            //                 <IconExternalLink />
-            //               </a>
-            //             </div>
-            //             <div className="mt-4 ml-2">{chunk.content}</div>
-            //           </div>
-            //         </div>
-            //       ))}
-            //     </div>
-            //   </div>
-            // ) : chunks.length > 0 ? (
+                  {chunks.map((chunk, index) => (
+                    <div key={index}>
+                      <div className="mt-4 border border-gray-800 rounded-lg p-4 shadow-md shadow-black">
+                        <div className="flex justify-between">
+                          <div className="flex items-center">
+                            <div className="">
+                              <div className="font-bold text-xl">{chunk.title}</div>
+                            </div>
+                          </div>
+                          <a
+                            className="hover:opacity-50 ml-4"
+                            href={chunk.url}
+                            target="_blank"
+                            rel="noreferrer"
+                          >
+                            <IconExternalLink />
+                          </a>
+                        </div>
+                        <div className="mt-4 ml-2">{chunk.content}</div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ) : chunks.length > 0 ? (
               <div className="flex flex-row w-full grow gap-8 mt-16">
                 <div className="flex flex-col w-1/2 h-96 mb-2">
                   <div className="font-bold text-2xl mb-2">Answer</div>
