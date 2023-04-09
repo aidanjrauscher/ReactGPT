@@ -1,7 +1,7 @@
 import { Answer } from "@/components/Answer/Answer";
 import { Footer } from "@/components/Footer";
 import { Navbar } from "@/components/Navbar";
-import { ReactChunk } from "@/types";
+import { DocChunk } from "@/types";
 import Head from "next/head";
 import useSettingsStore from "@/hooks/useSettingsStore";
 import { 
@@ -16,7 +16,8 @@ export default function Home() {
 
   const { apiKey } = useSettingsStore()
   const {chunks, query, answer, loading, updateChunks, updateQuery, updateAnswer, updateLoading} = useGenerationStore()
-   
+  console.log(chunks)
+  
   return (
     <>
       <Head>
@@ -69,19 +70,19 @@ export default function Home() {
                         <div className="flex justify-between">
                           <div className="flex items-center">
                             <div className="ml-4">
-                              <div className="font-bold text-xl">{chunk.metadata.title}</div>
+                              <div className="font-bold text-xl">{chunk.title}</div>
                             </div>
                           </div>
                           <a
                             className="hover:opacity-50 ml-4"
-                            href={chunk.metadata.link}
+                            href={chunk.url}
                             target="_blank"
                             rel="noreferrer"
                           >
                             <IconExternalLink />
                           </a>
                         </div>
-                        <div className="mt-4">{chunk.pageContent}</div>
+                        <div className="mt-4">{chunk.content}</div>
                       </div>
                     </div>
                   ))}
@@ -96,19 +97,19 @@ export default function Home() {
                       <div className="flex justify-between">
                         <div className="flex items-center">
                           <div className="ml-4">
-                            <div className="font-bold text-xl">{chunk.metadata.title}</div>
+                            <div className="font-bold text-xl">{chunk.title}</div>
                           </div>
                         </div>
                         <a
                           className="hover:opacity-50 ml-2"
-                          href={chunk.metadata.link}
+                          href={chunk.url}
                           target="_blank"
                           rel="noreferrer"
                         >
                           <IconExternalLink />
                         </a>
                       </div>
-                      <div className="mt-4">{chunk.pageContent}</div>
+                      <div className="mt-4">{chunk.content}</div>
                     </div>
                   </div>
                 ))}

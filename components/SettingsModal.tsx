@@ -35,7 +35,7 @@ export default function Settings(){
         >
             <div className="bg-gray-900 h-min w-min rounded-md px-8 py-12 flex flex-col items-center gap-2 transition duration-300">
                 <div className="mt-2">
-                    <div>OpenAI API Key</div>
+                    <div className="text-white font-semibold pb-2">OpenAI API Key</div>
                     <input
                     type="password"
                     placeholder="OpenAI API Key"
@@ -43,16 +43,12 @@ export default function Settings(){
                     value={apiKey}
                     onChange={(e) => {
                         updateApiKey(e.target.value);
-
-                        if (e.target.value.length !== 51) {
-                        openSettings();
-                        }
                     }}
                     />
                 </div>
 
                 <div className="mt-2">
-                    <div>Max Number of Tokens</div>
+                    <div className="text-white font-semibold pb-2">Max Number of Tokens</div>
                     <input
                     type="number"
                     min="1"

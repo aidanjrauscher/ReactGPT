@@ -14,3 +14,21 @@ interface Metadata {
   title: string;
   link: string;
 }
+
+export type Doc = {
+  url: string;
+  title: string;
+  length: number;
+  numTokens: number;
+  content: string;
+  chunks: DocChunk[];
+};
+
+export type DocChunk = {
+  url: string;
+  title: string;
+  content: string;
+  chunkLength: number;
+  chunkNumTokens: number;
+  embedding: number[];
+};

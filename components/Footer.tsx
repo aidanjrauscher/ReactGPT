@@ -3,7 +3,7 @@ import { FC } from "react";
 
 export const Footer: FC = () => {
   return (
-    <div className="flex w-screen min-h-16 border-t border-gray-900 items-end justify-center sm:justify-between bg-gray-800 text-white p-2">
+    <div className="flex w-screen min-h-12 border-t border-gray-900 items-end justify-center sm:justify-between bg-gray-800 text-white p-2">
       <div className="flex flex-col">
         <div className="hidden sm:flex italic text-sm">
           Built by
@@ -55,15 +55,6 @@ export const Footer: FC = () => {
             rel="noreferrer"
           >
             <IconBrandGithub size={24} />
-          </a>
-        </div>
-        <div className="hidden sm:flex">
-          <a href="https://www.buymeacoffee.com/aidanjrauscher" target="_blank">
-            <button
-                className="flex cursor-pointer items-center space-x-2 rounded-lg px-3 text-sm hover:opacity-50 shadow-black shadow-md bg-[#149eca] hover:shadow-sm p-2"
-              >
-                Support This Project
-            </button>
           </a>
         </div>
       </div>

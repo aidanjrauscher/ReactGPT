@@ -9,7 +9,6 @@ export const Answer: React.FC<AnswerProps> = ({ text }) => {
   const [words, setWords] = useState<string[]>([]);
 
   useEffect(() => {
-    console.log(text)
     setWords(text.split(" "));
   }, [text]);
 
